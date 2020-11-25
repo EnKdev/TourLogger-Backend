@@ -1,0 +1,46 @@
+<!-- 
+	gen.html - An online profile generator needed to use TourLogger
+	-----------
+	This html file stores data entered by the user and packs it into the currently used file format used by TourLogger.
+	-----------
+	Author: EnKdev
+	Created: 30.08.2020, 19:33 (08/30/2020, 7:33 PM)
+	Last updated: 25.11.2020, 16:42 (11/25/2020, 4:42 PM)
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="UTF-8">
+    	<title>TourLogger / Profile Generator</title>
+    	<style>
+        	form * {
+            	display: block;
+            	margin: 10px;
+        	}
+    	</style>
+    	<script type="text/javascript">
+        	function writeToFile(filename, driver, truck) {
+            	var pom = document.createElement('a');
+            	pom.setAttribute('href', 'data:text/plain;charset=utf-8,{\n\t"truck": "' + encodeURIComponent(truck) + '",\n\t"driver": "' + encodeURIComponent(driver) + '"\n}');
+            	pom.setAttribute('download', filename);
+            	pom.style.display = 'none';
+            	document.body.appendChild(pom);
+            	pom.click();
+            	document.body.removeChild(pom);
+        	}
+    	</script>
+	</head>
+	<body>
+    	<form onsubmit="writeToFile(this['name'].value, this['driverField'].value, this['truckField'].value)">
+        	<textarea rows="3" cols="50" name="info" disabled>
+            	Please use the below input fields to enter your Information (Driver Name, Truck you use, etc).
+            	You may use this to generate multiple profiles if you use multiple trucks.
+        	</textarea>
+        	<input type="text" name="name" value="truck.dat">
+        	<input type="text" name="driverField">
+        	<input type="text" name="truckField">
+        	<input type="submit" value="Download">
+    	</form>
+	</body>
+</html>
