@@ -11,7 +11,7 @@
  * ------------
  * Author: EnKdev
  * Created: 13.09.2020, 23:22 (09/13/2020, 11:22 PM)
- * Last updated: 27.11.2020 21:56 (11/27/2020, 9:56 PM)
+ * Last updated: 27.11.2020 22:13 (11/27/2020, 10:13 PM)
  */
 
 require('./pdoConnector.php');
@@ -21,9 +21,11 @@ $region = $_GET["region"];
 $game = $_GET["game"];
 
 // Field testing
+/*
 echo $appSecret . "\n\n";
 echo $region . "\n\n";
 echo $game . "\n\n";
+*/
 
 if ($appSecret === NULL or $appSecret !== "")
     echo "Access denied";
@@ -34,9 +36,14 @@ else {
                 case "ATS": // American Truck Simulator
                     $dbElems = array();
                     $query = $db->prepare("SELECT * FROM `tourlogger7`.`region.as.ch.ats`");
-                    $query->execute();
+                    $result = $query->execute();
 
-                    $dbElems[] = $query->fetchAll();
+                    if ($result) {
+                        while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                            $dbElems[] = $row;
+                        }
+                    }
+
                     $dbJson = json_encode($dbElems);
 
                     echo $dbJson;
@@ -45,9 +52,14 @@ else {
                 case "ETS2": // Euro Truck Simulator 2
                     $dbElems = array();
                     $query = $db->prepare("SELECT * FROM `tourlogger7`.`region.as.ch.ets`");
-                    $query->execute();
+                    $result = $query->execute();
 
-                    $dbElems[] = $query->fetchAll();
+                    if ($result) {
+                        while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                            $dbElems[] = $row;
+                        }
+                    }
+
                     $dbJson = json_encode($dbElems);
 
                     echo $dbJson;
@@ -61,9 +73,14 @@ else {
                 case "ATS": // American Truck Simulator
                     $dbElems = array();
                     $query = $db->prepare("SELECT * FROM `tourlogger7`.`region.as.jp.ats`");
-                    $query->execute();
+                    $result = $query->execute();
 
-                    $dbElems[] = $query->fetchAll();
+                    if ($result) {
+                        while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                            $dbElems[] = $row;
+                        }
+                    }
+
                     $dbJson = json_encode($dbElems);
 
                     echo $dbJson;
@@ -72,9 +89,14 @@ else {
                 case "ETS2": // Euro Truck Simulator 2
                     $dbElems = array();
                     $query = $db->prepare("SELECT * FROM `tourlogger7`.`region.as.jp.ets`");
-                    $query->execute();
+                    $result = $query->execute();
 
-                    $dbElems[] = $query->fetchAll();
+                    if ($result) {
+                        while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                            $dbElems[] = $row;
+                        }
+                    }
+
                     $dbJson = json_encode($dbElems);
 
                     echo $dbJson;
@@ -88,9 +110,14 @@ else {
                 case "ATS": // American Truck Simulator
                     $dbElems = array();
                     $query = $db->prepare("SELECT * FROM `tourlogger7`.`region.as.sk.ats`");
-                    $query->execute();
+                    $result = $query->execute();
 
-                    $dbElems[] = $query->fetchAll();
+                    if ($result) {
+                        while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                            $dbElems[] = $row;
+                        }
+                    }
+
                     $dbJson = json_encode($dbElems);
 
                     echo $dbJson;
@@ -99,9 +126,14 @@ else {
                 case "ETS2": // Euro Truck Simulator 2
                     $dbElems = array();
                     $query = $db->prepare("SELECT * FROM `tourlogger7`.`region.as.sk.ets`");
-                    $query->execute();
+                    $result = $query->execute();
 
-                    $dbElems[] = $query->fetchAll();
+                    if ($result) {
+                        while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                            $dbElems[] = $row;
+                        }
+                    }
+
                     $dbJson = json_encode($dbElems);
 
                     echo $dbJson;
@@ -115,9 +147,14 @@ else {
                 case "ATS": // American Truck Simulator
                     $dbElems = array();
                     $query = $db->prepare("SELECT * FROM `tourlogger7`.`region.aus.ats`");
-                    $query->execute();
+                    $result = $query->execute();
 
-                    $dbElems[] = $query->fetchAll();
+                    if ($result) {
+                        while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                            $dbElems[] = $row;
+                        }
+                    }
+
                     $dbJson = json_encode($dbElems);
 
                     echo $dbJson;
@@ -126,9 +163,14 @@ else {
                 case "ETS2": // Euro Truck Simulator 2
                     $dbElems = array();
                     $query = $db->prepare("SELECT * FROM `tourlogger7`.`region.aus.ets`");
-                    $query->execute();
+                    $result = $query->execute();
 
-                    $dbElems[] = $query->fetchAll();
+                    if ($result) {
+                        while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                            $dbElems[] = $row;
+                        }
+                    }
+
                     $dbJson = json_encode($dbElems);
 
                     echo $dbJson;
@@ -142,9 +184,14 @@ else {
                 case "ATS": // American Truck Simulator
                     $dbElems = array();
                     $query = $db->prepare("SELECT * FROM `tourlogger7`.`region.eue.ats`");
-                    $query->execute();
+                    $result = $query->execute();
 
-                    $dbElems[] = $query->fetchAll();
+                    if ($result) {
+                        while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                            $dbElems[] = $row;
+                        }
+                    }
+
                     $dbJson = json_encode($dbElems);
 
                     echo $dbJson;
@@ -153,9 +200,14 @@ else {
                 case "ETS2": // Euro Truck Simulator 2
                     $dbElems = array();
                     $query = $db->prepare("SELECT * FROM `tourlogger7`.`region.eue.ets`");
-                    $query->execute();
+                    $result = $query->execute();
 
-                    $dbElems[] = $query->fetchAll();
+                    if ($result) {
+                        while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                            $dbElems[] = $row;
+                        }
+                    }
+
                     $dbJson = json_encode($dbElems);
 
                     echo $dbJson;
@@ -169,9 +221,14 @@ else {
                 case "ATS": // American Truck Simulator
                     $dbElems = array();
                     $query = $db->prepare("SELECT * FROM `tourlogger7`.`region.euw.ats`");
-                    $query->execute();
+                    $result = $query->execute();
 
-                    $dbElems[] = $query->fetchAll();
+                    if ($result) {
+                        while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                            $dbElems[] = $row;
+                        }
+                    }
+
                     $dbJson = json_encode($dbElems);
 
                     echo $dbJson;
@@ -180,9 +237,14 @@ else {
                 case "ETS2": // Euro Truck Simulator 2
                     $dbElems = array();
                     $query = $db->prepare("SELECT * FROM `tourlogger7`.`region.euw.ets`");
-                    $query->execute();
+                    $result = $query->execute();
 
-                    $dbElems[] = $query->fetchAll();
+                    if ($result) {
+                        while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                            $dbElems[] = $row;
+                        }
+                    }
+
                     $dbJson = json_encode($dbElems);
 
                     echo $dbJson;
@@ -196,9 +258,14 @@ else {
                 case "ATS": // American Truck Simulator
                     $dbElems = array();
                     $query = $db->prepare("SELECT * FROM `tourlogger7`.`region.na.ats`");
-                    $query->execute();
+                    $result = $query->execute();
 
-                    $dbElems[] = $query->fetchAll();
+                    if ($result) {
+                        while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                            $dbElems[] = $row;
+                        }
+                    }
+
                     $dbJson = json_encode($dbElems);
 
                     echo $dbJson;
@@ -207,9 +274,14 @@ else {
                 case "ETS2": // Euro Truck Simulator 2
                     $dbElems = array();
                     $query = $db->prepare("SELECT * FROM `tourlogger7`.`region.na.ets`");
-                    $query->execute();
+                    $result = $query->execute();
 
-                    $dbElems[] = $query->fetchAll();
+                    if ($result) {
+                        while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                            $dbElems[] = $row;
+                        }
+                    }
+
                     $dbJson = json_encode($dbElems);
 
                     echo $dbJson;
@@ -223,9 +295,14 @@ else {
                 case "ATS": // American Truck Simulator
                     $dbElems = array();
                     $query = $db->prepare("SELECT * FROM `tourlogger7`.`region.sa.ats`");
-                    $query->execute();
+                    $result = $query->execute();
 
-                    $dbElems[] = $query->fetchAll();
+                    if ($result) {
+                        while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                            $dbElems[] = $row;
+                        }
+                    }
+
                     $dbJson = json_encode($dbElems);
 
                     echo $dbJson;
@@ -234,9 +311,14 @@ else {
                 case "ETS2": // Euro Truck Simulator 2
                     $dbElems = array();
                     $query = $db->prepare("SELECT * FROM `tourlogger7`.`region.sa.ets`");
-                    $query->execute();
+                    $result = $query->execute();
 
-                    $dbElems[] = $query->fetchAll();
+                    if ($result) {
+                        while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                            $dbElems[] = $row;
+                        }
+                    }
+
                     $dbJson = json_encode($dbElems);
 
                     echo $dbJson;
@@ -246,11 +328,18 @@ else {
         case "TEST": // Test, necessary for production, accessing old database!
             $dbElems = array();
             $query = $db->prepare("SELECT * FROM `tourlogger`.`tourdata`");
-            $query->execute();
+            $result = $query->execute();
 
-            $dbElems[] = $query->fetchAll();
+            if ($result) {
+                while ($row = $query->fetchAll(\PDO::FETCH_ASSOC)) {
+                    $dbElems[] = $row;
+                }
+            }
+
             $dbJson = json_encode($dbElems);
 
-            echo $dbJson;
+            echo '<pre>';
+            print_r($dbJson);
+            echo '</pre>';
     }
 }
